@@ -78,6 +78,7 @@ class SingleOtpInput extends PureComponent<*> {
       disabledStyle,
       shouldAutoFocus,
       isInputNum,
+      isChar,
       value,
       ...rest
     } = this.props;
@@ -99,7 +100,7 @@ class SingleOtpInput extends PureComponent<*> {
             isDisabled && disabledStyle,
             hasErrored && errorStyle
           )}
-          type={isInputNum ? 'number' : 'tel'}
+          type={isChar ? 'text' : isInputNum ? 'number' : 'tel'}}
           {...numValueLimits}
           maxLength="1"
           ref={input => {
@@ -235,6 +236,7 @@ class OtpInput extends Component<Props, State> {
       errorStyle,
       shouldAutoFocus,
       isInputNum,
+      isChar,
     } = this.props;
     const inputs = [];
 
@@ -264,6 +266,7 @@ class OtpInput extends Component<Props, State> {
           errorStyle={errorStyle}
           shouldAutoFocus={shouldAutoFocus}
           isInputNum={isInputNum}
+          isChar={isChar}
         />
       );
     }
